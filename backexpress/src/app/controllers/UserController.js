@@ -2,11 +2,14 @@ const { User } = require("../models");
 
 class UserController {
   async store(req, res) {
-    const data = req.body;
+    const { name, email, password, admin } = req.body;
 
-    // console.log(data);
-
-    const user = await User.create(data);
+    const user = await User.create({
+      name,
+      email,
+      password,
+      admin
+    });
 
     return res.status(200).json(user);
   }

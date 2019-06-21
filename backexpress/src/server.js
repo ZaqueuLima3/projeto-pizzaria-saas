@@ -3,7 +3,6 @@ require("dotenv").config({
 });
 
 const express = require("express");
-const session = require("express-session");
 
 class App {
   constructor() {
@@ -16,13 +15,6 @@ class App {
 
   middlewars() {
     this.express.use(express.json());
-    this.express.use(
-      session({
-        secret: "MyAppSecret",
-        resave: false,
-        saveUninitialized: false
-      })
-    );
   }
 
   routes() {
