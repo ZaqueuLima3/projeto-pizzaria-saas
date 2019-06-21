@@ -92,4 +92,16 @@ describe("Authentication", async () => {
 
     expect(response.status).toBe(401);
   });
+
+  it("should not be able to access dashboard when user is not admin", async () => {
+    const user = await factory.create("User", {
+      admin: false
+    });
+
+    const response = await request(app)
+      .get("/dashboard")
+      .set("Authorization", `Bearer ${user.generateToken()}`);
+
+    expect(response.status).toBe(401);
+  });
 });
