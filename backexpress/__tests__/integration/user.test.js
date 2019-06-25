@@ -4,7 +4,7 @@ const app = require("../../src/server");
 const truncate = require("../utils/truncate");
 const factory = require("../factories");
 
-describe("Users create", async () => {
+describe("Users create", () => {
   beforeEach(async () => {
     await truncate();
   });
