@@ -4,6 +4,7 @@ const routes = express.Router();
 
 const UserController = require("./app/controllers/UserController");
 const ProductController = require("./app/controllers/ProductController");
+const ProductTypeController = require("./app/controllers/ProductTypeController");
 const SessionController = require("./app/controllers/SessionController");
 
 const authMiddleware = require("./app/middlewares/auth");
@@ -20,5 +21,8 @@ routes.get("/dashboard", (req, res) => {
 });
 
 routes.post("/products", ProductController.store);
+routes.get("/products", ProductController.index);
+
+routes.get("/products/type/:id", ProductTypeController.store);
 
 module.exports = routes;

@@ -1,6 +1,6 @@
 const { ProductsType, ProductsDescription } = require("../models");
 
-class ProductController {
+class ProductTypeController {
   async store(req, res) {
     const { type, size, price } = req.body;
     const { id } = req.param;
@@ -20,4 +20,4 @@ class ProductController {
   }
 }
 
-module.exports = new ProductController();
+module.exports = new ProductTypeController();
