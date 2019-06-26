@@ -1,22 +1,15 @@
-const { ProductsType, ProductsDescription } = require("../models");
+const { ProductsType } = require("../models");
 
 class ProductTypeController {
   async store(req, res) {
-    const { type, size, price } = req.body;
-    const { id } = req.param;
+    const { type, product } = req.body;
 
     const productType = await ProductsType.create({
       name: type,
-      product_id: id
+      product_id: product
     });
 
-    const productDescription = await ProductsDescription.create({
-      size,
-      price,
-      type_id: productType.id
-    });
-
-    return res.status(200).json(product);
+    return res.status(200).json(productType);
   }
 }
 
