@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      type_id: {
+      products_type_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: "products_types", key: "id" },

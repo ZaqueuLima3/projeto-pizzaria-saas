@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   ProductsDescription.associate = models => {
     ProductsDescription.belongsTo(models.ProductsType, {
-      foreignKey: "type_id"
+      foreignKey: "products_type_id"
     });
   };
 

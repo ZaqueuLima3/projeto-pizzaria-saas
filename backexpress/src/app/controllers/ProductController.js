@@ -1,12 +1,6 @@
 const { Product } = require("../models");
 
 class ProductController {
-  async index(req, res) {
-    const products = await Product.findAll();
-
-    return res.json(products);
-  }
-
   async store(req, res) {
     const { name } = req.body;
 

@@ -16,6 +16,9 @@ routes.post("/signup", UserController.store);
 routes.post("/signin", SessionController.store);
 
 routes.use(authMiddleware);
+
+routes.get("/products", ProductsDescription.index);
+
 routes.use(isAdminMiddleware);
 
 routes.get("/dashboard", (req, res) => {
@@ -23,9 +26,7 @@ routes.get("/dashboard", (req, res) => {
 });
 
 routes.post("/products", ProductController.store);
-routes.get("/products", ProductController.index);
-
-routes.get("/products/newtype", ProductTypeController.store);
-routes.get("/products/newsize", ProductsDescription.store);
+routes.post("/products/newtype", ProductTypeController.store);
+routes.post("/products/newsize", ProductsDescription.store);
 
 module.exports = routes;
