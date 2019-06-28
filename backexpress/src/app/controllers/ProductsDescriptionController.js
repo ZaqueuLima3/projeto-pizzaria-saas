@@ -1,8 +1,10 @@
-const { ProductsDescription } = require("../models");
+const { ProductsDescription, ProductsType, Product } = require("../models");
 
 class ProductsDescriptionController {
   async index(req, res) {
-    const products = await ProductsDescription.findAll();
+    const products = await ProductsDescription.findAll({
+      include: [{ model: ProductsType, include: [{ model: Product }] }]
+    });
 
     return res.json(products);
   }
